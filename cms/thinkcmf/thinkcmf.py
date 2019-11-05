@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from data.info_dict import PHPINFO_KEYWORD,ANTSOWOD_STATUSCODE
+
 
 
 
@@ -18,7 +18,7 @@ def poc(arg, **kwargs):
     try:
         r = hh.http(pre_vulnurl,headers=headers,timeoout=5)
         rr= hh.http(vulnurl,headers=headers,timeout=5)
-        if ANTSOWOD_STATUSCODE   in  r.status_code:
+        if r.status_code==408:
             result = {
                 "name": "thinkcmf REC",  # 插件名称
                 "content": '''影响版本1.6/2.0/2.1/2.2''',  # 插件返回内容详情，会造成什么后果。

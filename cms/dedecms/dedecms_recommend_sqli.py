@@ -24,7 +24,7 @@ def poc(arg, **kwargs):
         if r"81dc9bdb52d04dc20036dbd8313ed055" in r.text():
             result = {
                 "name": "dedecms recommend sql注入",  # 插件名称
-                "content": '''1.首先执行到plus/recommand.php，包含了include/common.inc.php
+                "content": '''1.首先执行到plus/recommand.php，包含了include/commo1`n.inc.php
         2.只要提交的URL中不包含cfg_|GLOBALS|_GET|_POST|_COOKIE，即可通过检查，_FILES[type][tmp_name]被带入
         3.在29行处，URL参数中的_FILES[type][tmp_name]，$_key为type，$$_key即为$type，从而导致了$type变量的覆盖
         4.回到recommand.php中，注入语句被带入数据库查询''',  # 插件返回内容详情，会造成什么后果。

